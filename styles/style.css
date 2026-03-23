@@ -20,4 +20,47 @@ body {
 
   color: var(--white);
   background-color: var(--nebula-bg);
+  padding: 5dvh 5dvw;
 }
+
+header {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+
+  span {
+    color: var(--nebula-accent);
+  }
+}
+
+h1 {
+  font-size: 6em;
+  word-spacing: 100dvw;
+  line-height: 1;
+
+  &:first-line {
+    font-size: 1.33em; 
+  }
+}
+
+nav ul {
+  padding-inline: 0;
+
+  
+
+  li {
+    display: flex;
+    align-items: flex-end;
+    list-style: none;
+
+    &::after {
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+      content: '';
+      background: url(../public/images/arrow.png);
+      background-repeat: no-repeat;
+    }
+  }
+}
+
