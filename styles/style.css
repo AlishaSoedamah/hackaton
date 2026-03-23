@@ -67,7 +67,7 @@ nav ul {
 }
 
 a:hover, button:hover {
-  cursor: url("/images/blackhole_32x32.png") 16 16, auto;
+  cursor: url("../public/images/blackhole_32x32.png") 16 16, auto;
 	font-family: spacemono, Arial, Helvetica, sans-serif;
 
 	color: var(--white);
