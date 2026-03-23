@@ -17,7 +17,6 @@
 
 body {
   font-family: spacemono, Arial, Helvetica, sans-serif;
-
   color: var(--white);
   background-color: var(--nebula-bg);
   padding: 5dvh 5dvw;
@@ -64,3 +63,6 @@ nav ul {
   }
 }
 
+a:hover, button:hover {
+  cursor: url("/images/blackhole_32x32.png") 16 16, auto;
+}
