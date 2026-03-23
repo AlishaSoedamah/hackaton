@@ -187,6 +187,63 @@ section {
 }
 
 p {
-	font-size: 4em;
+	/* font-size: 4em; */
 	color: var(--white)
+}
+
+main {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+
+h3 {
+	font-size: 2em;
+	margin-bottom: 25px;
+}
+
+mark {
+	color: var(--nebula-accent);
+	font-size: 1.5em;
+	background-color: transparent;
+	font-family: "Space Grotesk", sans-serif;
+}
+
+span {
+	color: var(--white);
+	font-size: 2.5em;
+}
+
+.two-cols {
+	display: grid;
+	justify-items: center;
+	grid-template-columns: repeat( auto-fit, minmax(250px, 1fr));
+	gap: 25px;
+}
+
+.carousel {
+	width: 90vw;
+}
+
+.carousel img {
+	width: 320px;
+	height: auto;
+}
+
+.carousel p:first-child {
+	border-bottom: 1px solid var(--white);
+	padding-bottom: 20px;
+}
+
+@media (min-width: 600px) {
+	.carousel {
+		width: 80vw;
+	}
+}
+
+@media (min-width: 800px) {
+	.carousel {
+		width: 70vw;
+	}
 }
