@@ -1,15 +1,23 @@
 :root {
-	--white: rgb(255, 255, 255);
-	--black: rgb(0, 0, 0);
-	--nebula-accent: #EB5C35;
-	--nebula-bg: #181932;
+  --white: rgb(255, 255, 255);
+  --black: rgb(0, 0, 0);
+  --nebula-accent: #eb5c35;
+  --nebula-bg: #181932;
+}
+
+@font-face {
+  font-family: spacemono;
+  src: url(../fonts/SpaceMono-Regular.ttf);
 }
 
 * {
-	box-sizing: border-box;
-	margin: 0;
+  box-sizing: border-box;
+  margin: 0;
 }
 
 body {
-	background-color: var(--nebula-bg);
+  font-family: spacemono, Arial, Helvetica, sans-serif;
+
+  color: var(--white);
+  background-color: var(--nebula-bg);
 }
