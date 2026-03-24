@@ -375,10 +375,22 @@ main {
 }
 
 @keyframes reveal-content {
-    to {
+    0% {
+		opacity: 0;
+	}
+
+	30%{
+		opacity: 0.5;
+	}
+
+	60% {
         opacity: 1;
         transform: translateY(0);
     }
+
+	100% {
+		opacity: 1;
+	}
 }
 
 h3 {
