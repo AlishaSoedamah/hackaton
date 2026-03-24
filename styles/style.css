@@ -18,6 +18,8 @@
 body {
   font-family: spacemono, Arial, Helvetica, sans-serif;
   color: var(--white);
+
+
   background: 
   linear-gradient(to bottom, var(--black), var(--nebula-bg));
   height: 200vh;
@@ -83,6 +85,8 @@ a:hover, button:hover {
 	top: 0;
 	height: 100vh;
 	display: grid;
+	background: var(--black);
+	
 	/* background: linear-gradient(
 		to bottom,
 		var(--black) 90%,
@@ -183,15 +187,15 @@ a:hover, button:hover {
 	}
 
 	40% {
-		transform: scale(6);
+		transform: scale(20);
 	}
 
 	70% {
-		transform: scale(7);
+		transform: scale(40);
 	}
 	
 	100% {
-		transform: scale(10);
+		transform: scale(80);
 		opacity: 0;
 
 		height: 0;
@@ -199,15 +203,6 @@ a:hover, button:hover {
 		padding: 0;
 		overflow: hidden;
 	}
-}
-
-section {
-	height: 10em;
-	background-image: 
-	linear-gradient(
-		var(--black) 0%,
-		var(--nebula-bg) 100%
-);
 }
 
 p {
@@ -220,6 +215,9 @@ main {
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
+	background: linear-gradient(
+	var(--black) 0%, lightblue 100%
+  );
 }
 
 .heading {
