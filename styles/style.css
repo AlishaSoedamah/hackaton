@@ -78,27 +78,35 @@ a:hover, button:hover {
 }
 
 .background {
-	/* position: sticky; */
+
 	top: 0;
 	height: 100vh;
 	display: grid;
-	background: var(--black);
-	/* z-index: 10; */
+	/* background: linear-gradient(
+		to bottom,
+		var(--black) 90%,
+		var(--nebula-bg)
+	); */
+	background-color: black;
+
 }
 
+
 .circle-wrapper {
+
 	display: grid;
 	place-items: center;
 	animation: zoom-blackhole linear forwards;
 		animation-timeline: view();
-		animation-range: entry 100% exit 100%;
+		animation-range: entry 100% exit 200%;
+	/* padding-bottom: 10em; */
 }
 
 .circle {
 	width: 180px;
 	height: 180px;
 	border-radius: 50%;
-	background: var(--nebula-bg);
+	background: transparent;
 	position: relative;
 
 	transform: skew(0deg, -11deg);
@@ -114,6 +122,8 @@ a:hover, button:hover {
 	animation: 
 		animation-blackhole 3s infinite,
 		animation-blackhole2 5s infinite;
+
+		
 }
 
 .circle::before {
@@ -171,11 +181,16 @@ a:hover, button:hover {
 		transform: scale(6);
 	}
 	70% {
-		transform: scale(20);
+		transform: scale(7);
 	}
 	100% {
-		transform: scale(60);
+		transform: scale(10);
 		opacity: 0;
+
+		height: 0;
+		margin: 0;
+		padding: 0;
+		overflow: hidden;
 	}
 }
 
@@ -198,6 +213,20 @@ main {
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
+}
+
+.heading {
+	opacity: 0;
+	animation: reveal-content linear forwards;
+	animation-timeline: view();
+	animation-range: entry 80% exit 0%;
+}
+
+@keyframes reveal-content {
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
 }
 
 h3 {
