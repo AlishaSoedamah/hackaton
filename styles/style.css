@@ -78,7 +78,7 @@ a:hover, button:hover {
   display: grid;
   grid-template-columns: repeat(16, 1fr);
   grid-template-rows: repeat(11, 1fr);
-  padding: 5dvh 5dvw;
+  margin: 5dvh 5dvw;
   min-height: 100dvh;
   height: fit-content;
 
