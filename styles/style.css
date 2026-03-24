@@ -182,10 +182,6 @@ a:hover, button:hover {
 .circle-wrapper {
 	display: grid;
 	place-items: center;
-
-	/* animation-range: cover 0% cover 200px; */
-		/* animation-range: entry 100% exit 200%; */
-	/* padding-bottom: 10em; */
 }
 
 .circle {
@@ -299,12 +295,78 @@ main {
 	animation: reveal-content linear forwards;
 	animation-timeline: view();
 	animation-range: entry 80% exit 0%;
+
+    /* opacity: 0;
+	animation: reveal-content linear forwards;
+	animation-timeline: view(); */
+}
+
+
+
+.background-head {
+	display: grid;
+    height: 100dvh;
+
+	position: fixed;
+	top: 0;
+	right: 0;
+	left: 0;
+
+	overflow: hidden;
+	pointer-events: none;
+    z-index: -1;
+
+    opacity: .6;
+    transform: scale(1.6);
+
+}
+
+
+.circle-wrapper-head {
+	display: grid;
+	place-items: center;
+}
+
+.circle-head {
+    font-size: clamp(60px, 20vw, 300px);
+    width: 1em;
+    height: 1em;
+
+    border-radius: 50%;
+    background: transparent;
+    position: relative;
+
+    transform: skew(0deg, -11deg);
+    filter: blur(24px) contrast(2);
+
+    box-shadow: 
+        -100px 20px 70px -20px #fff496,
+        6px 96px 82px -21px #fff9c7,
+        56px 93px 64px -52px #ffffff,
+        86px 56px 90px -2px #ffe500,
+        0 0px 100px 130px #8d1f00c9;
+
+    animation: 
+        animation-blackhole 3s infinite,
+        animation-blackhole2 5s infinite;
+
+        
+}
+
+.circle-head::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: 10px solid #ff3000;
+    border-radius: 50%;
+    filter: blur(10px);
+    transform: skew(10deg, 10deg);
 }
 
 @keyframes reveal-content {
     to {
+        
         opacity: 1;
-        transform: translateY(0);
     }
 }
 
@@ -457,3 +519,5 @@ body.progress-active .scroll-indicator {
 		display: none;
 	}
 }
+
+
