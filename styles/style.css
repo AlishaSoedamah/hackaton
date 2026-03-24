@@ -80,12 +80,21 @@ a:hover, button:hover {
 
 .background {
 
-	top: 0;
+	
 	height: 100vh;
 	display: grid;
 	background: var(--black);
 	
+	position: fixed;
+	top: 0;
+	right:0;
+	left:0;
 
+	overflow:hidden;
+
+	animation: zoom-blackhole linear forwards;
+	animation-timeline: scroll();
+	animation-range:0vh 100dvh;
 }
 
 
@@ -93,9 +102,9 @@ a:hover, button:hover {
 
 	display: grid;
 	place-items: center;
-	animation: zoom-blackhole linear forwards;
-		animation-timeline: view();
-		animation-range: entry 100% exit 200%;
+	
+	/* animation-range: cover 0% cover 200px; */
+		/* animation-range: entry 100% exit 200%; */
 	/* padding-bottom: 10em; */
 }
 
@@ -184,10 +193,10 @@ a:hover, button:hover {
 		transform: scale(80);
 		opacity: 0;
 
-		height: 0;
-		margin: 0;
-		padding: 0;
-		overflow: hidden;
+		/* height: 0; */
+		/* margin: 0; */
+		/* padding: 0; */
+		/* overflow: hidden; */
 	}
 }
 
