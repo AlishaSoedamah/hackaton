@@ -421,7 +421,7 @@ main {
 	opacity: 0;
 	animation: reveal-content linear forwards;
 	animation-timeline: view();
-	animation-range: entry 80% exit 0%;
+	animation-range: entry 65% exit 0%;
 
     /* opacity: 0;
 	animation: reveal-content linear forwards;
