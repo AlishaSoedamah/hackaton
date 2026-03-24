@@ -384,9 +384,7 @@ main {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    background: linear-gradient(
-    var(--black) 0%, lightblue 100%
-);
+    background: linear-gradient(180deg,rgba(0, 0, 0, 1) 0%, rgba(24, 25, 50, 1) 70%, rgba(10, 61, 120, 1) 80%, rgba(0, 101, 156, 1) 90%, rgba(33, 159, 184, 1) 100%);
 }
 
 .heading {
@@ -537,7 +535,7 @@ body.progress-active .scroll-indicator {
 	height: 0;
 	border-radius: 999px;
 	background: linear-gradient(
-		to bottom,
+		to top,
 		var(--nebula-accent),
 		rgb(255 255 255 / 0.9)
 	);
