@@ -311,10 +311,6 @@ a:hover, button:hover {
 .circle-wrapper {
 	display: grid;
 	place-items: center;
-
-	/* animation-range: cover 0% cover 200px; */
-		/* animation-range: entry 100% exit 200%; */
-	/* padding-bottom: 10em; */
 }
 
 .circle {
@@ -425,7 +421,73 @@ main {
 	opacity: 0;
 	animation: reveal-content linear forwards;
 	animation-timeline: view();
-	animation-range: entry 65% exit 0%;
+	animation-range: entry 80% exit 0%;
+
+    /* opacity: 0;
+	animation: reveal-content linear forwards;
+	animation-timeline: view(); */
+}
+
+
+
+.background-head {
+	display: grid;
+    height: 100dvh;
+
+	position: fixed;
+	top: 0;
+	right: 0;
+	left: 0;
+
+	overflow: hidden;
+	pointer-events: none;
+    z-index: -1;
+
+    opacity: .6;
+    transform: scale(1.6);
+
+}
+
+
+.circle-wrapper-head {
+	display: grid;
+	place-items: center;
+}
+
+.circle-head {
+    font-size: clamp(60px, 20vw, 300px);
+    width: 1em;
+    height: 1em;
+
+    border-radius: 50%;
+    background: transparent;
+    position: relative;
+
+    transform: skew(0deg, -11deg);
+    filter: blur(24px) contrast(2);
+
+    box-shadow: 
+        -100px 20px 70px -20px #fff496,
+        6px 96px 82px -21px #fff9c7,
+        56px 93px 64px -52px #ffffff,
+        86px 56px 90px -2px #ffe500,
+        0 0px 100px 130px #8d1f00c9;
+
+    animation: 
+        animation-blackhole 3s infinite,
+        animation-blackhole2 5s infinite;
+
+        
+}
+
+.circle-head::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: 10px solid #ff3000;
+    border-radius: 50%;
+    filter: blur(10px);
+    transform: skew(10deg, 10deg);
 }
 
 @keyframes reveal-content {
@@ -596,3 +658,70 @@ body.progress-active .scroll-indicator {
 		display: none;
 	}
 }
+
+
+
+body.blackhole-mode {
+  animation: warp-screen 2s ease forwards;
+  overflow: hidden;
+}
+
+/* background gets pulled inward */
+body.blackhole-mode .background-head {
+  transform: scale(2) translate(0, -10%);
+  opacity: 1;
+  transition: transform 2s ease, opacity 2s ease;
+}
+
+/* black hole spins faster */
+body.blackhole-mode .circle-head,
+body.blackhole-mode .circle {
+  animation-duration: 0.8s, 1.5s;
+  filter: blur(30px) contrast(3);
+}
+
+/* warp effect */
+@keyframes warp-screen {
+  0% {
+    transform: scale(1) rotate(0deg);
+    filter: blur(0px);
+  }
+  50% {
+    transform: scale(1.2) rotate(2deg);
+    filter: blur(2px);
+  }
+  100% {
+    transform: scale(0.8) rotate(-5deg);
+    filter: blur(6px);
+  }
+}
+
+/* everything gets pulled toward center */
+body.blackhole-mode * {
+  transition: transform 2s ease, opacity 2s ease;
+}
+
+/* optional: elements get sucked in */
+body.blackhole-mode .heading,
+body.blackhole-mode nav,
+body.blackhole-mode main {
+  transform: translateY(50px) scale(0.9);
+  opacity: 0;
+}
+
+/* hidden message reveal */
+.blackhole-message {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-size: 2rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1s ease;
+}
+
+body.blackhole-mode .blackhole-message {
+  opacity: 1;
+}
+
