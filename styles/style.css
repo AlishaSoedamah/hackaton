@@ -180,7 +180,7 @@ a:hover, button:hover {
 }
 
 section {
-	height: 10em;
+	/* height: 10em; */
 	background-image: 
 	linear-gradient(
 		var(--black) 0%,
@@ -217,35 +217,21 @@ span {
 	font-size: 2.5em;
 }
 
-.two-cols {
-	display: grid;
-	justify-items: center;
-	grid-template-columns: repeat( auto-fit, minmax(250px, 1fr));
-	gap: 25px;
-}
-
-.carousel {
-	width: 90vw;
-}
-
-.carousel img {
-	width: 320px;
-	height: auto;
-}
-
-.carousel p:first-child {
+.special {
 	border-bottom: 1px solid var(--white);
 	padding-bottom: 20px;
 }
 
-@media (min-width: 600px) {
-	.carousel {
-		width: 80vw;
-	}
+.carousel {
+	display: grid;
+    justify-items: center;
+    grid-template-columns: repeat(3, 1fr);
 }
 
-@media (min-width: 800px) {
-	.carousel {
-		width: 70vw;
-	}
+.stick {
+	top: 10px;
+	z-index: 2;
+    position: sticky;
+    width: 300px;
+	align-self: self-start;
 }
