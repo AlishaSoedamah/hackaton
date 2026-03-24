@@ -19,7 +19,6 @@ body {
   font-family: spacemono, Arial, Helvetica, sans-serif;
   color: var(--white);
   background-color: var(--nebula-bg);
-  padding: 5dvh 5dvw;
   height: 200vh;
   overflow-x: hidden;
   margin: 0;
@@ -48,8 +47,6 @@ h1 {
 nav ul {
   padding-inline: 0;
 
-  
-
   li {
     display: flex;
     align-items: flex-end;
@@ -73,6 +70,11 @@ a:hover, button:hover {
 	color: var(--white);
 	background-color: var(--nebula-bg);
 
+}
+
+.heading {
+  padding: 5dvh 5dvw;
+  height: 100dvh;
 }
 
 .background {
