@@ -251,6 +251,29 @@ a:hover, button:hover {
 	animation-range: 0vh 100dvh;
 }
 
+.scroll-hint {
+	position: fixed;       
+	bottom: 10vh;
+	left: 50%;
+	transform: translateX(-50%);
+
+	color: var(--white);
+	font-size: 1.3rem;
+	letter-spacing: 0.2em;
+	text-transform: uppercase;
+	opacity: 0.7;
+	z-index: 20;              
+	pointer-events: none; 
+
+
+	animation: fadeHint 4s ease-in-out infinite;
+}
+
+@keyframes fadeHint {
+	0%, 100% { opacity: 0.2; }
+	50% { opacity: 1; }
+}
+
 
 .circle-wrapper {
 	display: grid;
@@ -281,8 +304,8 @@ a:hover, button:hover {
         0 0px 100px 130px #8d1f00c9;
 
     animation: 
-        animation-blackhole 3s infinite,
-        animation-blackhole2 5s infinite;
+        animation-blackhole 3s ease-in-out infinite,
+        animation-blackhole2 5s ease-in-out infinite;
 
         
 }
