@@ -79,27 +79,24 @@ a:hover, button:hover {
 }
 
 .background {
-
-	
 	height: 100vh;
 	display: grid;
 	background: var(--black);
 	
 	position: fixed;
 	top: 0;
-	right:0;
-	left:0;
+	right: 0;
+	left: 0;
 
-	overflow:hidden;
+	overflow: hidden;
 
 	animation: zoom-blackhole linear forwards;
 	animation-timeline: scroll();
-	animation-range:0vh 100dvh;
+	animation-range: 0vh 100dvh;
 }
 
 
 .circle-wrapper {
-
 	display: grid;
 	place-items: center;
 	
@@ -216,6 +213,7 @@ main {
 }
 
 .heading {
+	margin-top: 100dvh;
 	opacity: 0;
 	animation: reveal-content linear forwards;
 	animation-timeline: view();
