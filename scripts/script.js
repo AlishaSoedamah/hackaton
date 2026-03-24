@@ -69,7 +69,6 @@ updateProgress();
 window.addEventListener('scroll', updateProgress);
 window.addEventListener('resize', updateProgress);
 
-// If content changes, recalculate
 const resizeObserver = new ResizeObserver(() => {
 	updateProgress();
 });
@@ -77,3 +76,32 @@ const resizeObserver = new ResizeObserver(() => {
 resizeObserver.observe(main);
 resizeObserver.observe(carousel);
 resizeObserver.observe(heading);
+
+
+
+const konamiCode = [
+  "ArrowUp","ArrowUp",
+  "ArrowDown","ArrowDown",
+  "ArrowLeft","ArrowRight",
+  "ArrowLeft","ArrowRight",
+  "b","a"
+];
+
+let inputSequence = [];
+
+window.addEventListener("keydown", (e) => {
+  inputSequence.push(e.key.toLowerCase());
+
+  if (inputSequence.length > konamiCode.length) {
+    inputSequence.shift();
+  }
+
+  if (inputSequence.join("") === konamiCode.join("").toLowerCase()) {
+    activateBlackHoleMode();
+    inputSequence = [];
+  }
+});
+
+function activateBlackHoleMode() {
+  document.body.classList.add("blackhole-mode");
+}

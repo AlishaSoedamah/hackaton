@@ -606,3 +606,68 @@ body.progress-active .scroll-indicator {
 }
 
 
+
+body.blackhole-mode {
+  animation: warp-screen 2s ease forwards;
+  overflow: hidden;
+}
+
+/* background gets pulled inward */
+body.blackhole-mode .background-head {
+  transform: scale(2) translate(0, -10%);
+  opacity: 1;
+  transition: transform 2s ease, opacity 2s ease;
+}
+
+/* black hole spins faster */
+body.blackhole-mode .circle-head,
+body.blackhole-mode .circle {
+  animation-duration: 0.8s, 1.5s;
+  filter: blur(30px) contrast(3);
+}
+
+/* warp effect */
+@keyframes warp-screen {
+  0% {
+    transform: scale(1) rotate(0deg);
+    filter: blur(0px);
+  }
+  50% {
+    transform: scale(1.2) rotate(2deg);
+    filter: blur(2px);
+  }
+  100% {
+    transform: scale(0.8) rotate(-5deg);
+    filter: blur(6px);
+  }
+}
+
+/* everything gets pulled toward center */
+body.blackhole-mode * {
+  transition: transform 2s ease, opacity 2s ease;
+}
+
+/* optional: elements get sucked in */
+body.blackhole-mode .heading,
+body.blackhole-mode nav,
+body.blackhole-mode main {
+  transform: translateY(50px) scale(0.9);
+  opacity: 0;
+}
+
+/* hidden message reveal */
+.blackhole-message {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-size: 2rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1s ease;
+}
+
+body.blackhole-mode .blackhole-message {
+  opacity: 1;
+}
+
