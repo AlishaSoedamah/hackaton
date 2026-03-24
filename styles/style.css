@@ -20,8 +20,7 @@ body {
   color: var(--white);
 
 
-  background: 
-  linear-gradient(to bottom, var(--black), var(--nebula-bg));
+
   height: 200vh;
   overflow-x: hidden;
   margin: 0;
@@ -106,9 +105,9 @@ a:hover, button:hover {
 		animation-range: entry 100% exit 200%;
 }
 
-.circle {
-	width: 180px;
-	height: 180px;
+/* .circle {
+	width: clamp(60px, 20vw, 300px);
+	height: clamp(60px, 20vw, 300px);
 	border-radius: 50%;
 	background: transparent;
 	position: relative;
@@ -126,12 +125,34 @@ a:hover, button:hover {
 	animation: 
 		animation-blackhole 3s infinite,
 		animation-blackhole2 5s infinite;
-
 		
+} */
+
+.circle {
+	font-size: clamp(60px, 20vw, 300px);
+	width: 1em;
+	height: 1em;
+	border-radius: 50%;
+	background: transparent;
+	position: relative;
+
+	transform: skew(0deg, -11deg);
+	filter: blur(0.13em) contrast(2);
+
+	box-shadow: 
+		-0.55em 0.11em 0.39em -0.11em #fff496,
+		0.03em 0.53em 0.46em -0.12em #fff9c7,
+		0.31em 0.52em 0.36em -0.29em #ffffff,
+		0.48em 0.31em 0.5em -0.01em #ffe500,
+		0 0 0.55em 0.72em #8d1f00c9;
+
+	animation: 
+		animation-blackhole 3s infinite,
+		animation-blackhole2 5s infinite;
 }
 
 .circle::before {
-	background-color: var(--nebula-bg);
+	/* background-color: var(--nebula-bg); */
 	content: "";
 	position: absolute;
 	inset: 0;
@@ -221,10 +242,31 @@ main {
 }
 
 .heading {
+	position: relative;
 	opacity: 0;
 	animation: reveal-content linear forwards;
 	animation-timeline: view();
 	animation-range: entry 80% exit 0%;
+
+	.background {
+		background: transparent;
+		position: absolute;
+		inset: 0;
+		z-index: -1;
+		opacity: .5;
+		transform: scale(1.5);
+	}
+
+	/* .circle {
+		top: 3em;
+		left: 3em;
+		z-index: -1;
+	} */
+
+	.circle-wrapper-head {
+		display: grid;
+		place-items: center; 
+	}
 }
 
 @keyframes reveal-content {
