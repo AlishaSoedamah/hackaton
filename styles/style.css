@@ -402,6 +402,15 @@ a:hover, button:hover {
     }
 }
 
+section {
+	/* height: 10em; */
+	background-image: 
+	linear-gradient(
+		var(--black) 0%,
+		var(--nebula-bg) 100%
+);
+}
+
 p {
 	font-size: clamp(.8em, 2.5vw ,1em);
 	color: var(--white);
@@ -510,8 +519,9 @@ main {
 }
 
 h3 {
-    font-size: 2em;
-    margin-bottom: 25px;
+	font-size: 2em;
+	margin-bottom: 25px;
+	color: var(--nebula-accent);
 }
 
 mark {
@@ -526,36 +536,66 @@ span {
     font-size: 2.5em;
 }
 
-.two-cols {
-    display: grid;
-    justify-items: center;
-    grid-template-columns: repeat( auto-fit, minmax(250px, 1fr));
-    gap: 25px;
+.stick {
+	top: 0;
+    position: sticky;
+    width: 300px;
+	align-self: self-start;
+}
+
+.special {
+	background-color: var(--nebula-bg);
+	border-bottom: 1px solid var(--white);
+	padding: 20px 0;
+	margin: 20px 0;
+	top: 0;
+    position: sticky;
 }
 
 .carousel {
-    width: 90vw;
+	display: grid;
+	justify-items: center;
+	justify-content: center;
+	grid-template-columns: 130px auto 450px;
+	gap: 75px;
+	width: 100vw;
+	height: 130vh;
+	position: relative;
+  background: linear-gradient(180deg,rgba(0, 0, 0, 1) 0%, rgba(24, 25, 50, 1) 70%, rgba(10, 61, 120, 1) 80%, rgba(0, 101, 156, 1) 90%, rgba(33, 159, 184, 1) 100%);
+}
+
+.carousel div {
+	position: sticky;
+	top: 0;
+	animation-name: fadeScale;
+	animation-timeline: view();
+	animation-range: entry 100svh cover 50%;
+	animation-duration: auto;
+	animation-fill-mode: both;
 }
 
 .carousel img {
-    width: 320px;
-    height: auto;
+	position: sticky;
+	top: 25%;
+	animation-name: fadeScale;
+	animation-timeline: view();
+	animation-range: entry 100svh cover 50%;
+	animation-duration: auto;
+	animation-fill-mode: both;
 }
 
-.carousel p:first-child {
-    border-bottom: 1px solid var(--white);
-    padding-bottom: 20px;
+@keyframes fadeScale {
+	from {
+		opacity: 1;
+	}
+	to {
+		opacity: 0;
+	}
 }
 
-@media (min-width: 600px) {
-    .carousel {
-        width: 80vw;
-    }
-}
-
-@media (min-width: 800px) {
+@media (max-width: 500px) {
 	.carousel {
-		width: 70vw;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr) );
 	}
 }
 
