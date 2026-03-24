@@ -113,6 +113,8 @@ document.getElementById("exitBlackhole").addEventListener("click", () => {
 
 const text = "-.-- --- ..- / .... .- ...- . / -... . . -. / .- -... ... --- .-. -... . -.. / .. -. - --- / - .... . / ...- --- .. -.. .-.-.- .-.-.- .-.-.-";
 const el = document.getElementById("typingText");
+const typingSound = new Audio('../audio/morsethevoid.mp3')
+
 
 let i = 0;
 
@@ -120,7 +122,9 @@ function typeWriter() {
   if (i < text.length) {
     el.innerHTML += text.charAt(i);
     i++;
-    setTimeout(typeWriter, 40); 
+    setTimeout(typeWriter, 100); 
+    typingSound.loop = false;
+typingSound.play();
   }
 }
 
