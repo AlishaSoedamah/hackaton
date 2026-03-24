@@ -223,10 +223,11 @@ span {
 }
 
 .carousel {
-	display: grid;
-    justify-items: center;
-    grid-template-columns: repeat(3, 1fr);
-}
+		display: grid;
+		justify-items: center;
+		grid-template-columns: repeat(3, 1fr);
+		padding: 0 25px;
+	}
 
 .stick {
 	top: 10px;
@@ -234,4 +235,11 @@ span {
     position: sticky;
     width: 300px;
 	align-self: self-start;
+}
+
+@media (max-width: 375px) {
+	.carousel {
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr) );
+	}
+
 }
