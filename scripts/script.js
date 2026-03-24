@@ -105,3 +105,29 @@ window.addEventListener("keydown", (e) => {
 function activateBlackHoleMode() {
   document.body.classList.add("blackhole-mode");
 }
+
+document.getElementById("exitBlackhole").addEventListener("click", () => {
+  document.body.classList.remove("blackhole-mode");
+});
+
+
+const text = "-.-- --- ..- / .... .- ...- . / -... . . -. / .- -... ... --- .-. -... . -.. / .. -. - --- / - .... . / ...- --- .. -.. .-.-.- .-.-.- .-.-.-";
+const el = document.getElementById("typingText");
+
+let i = 0;
+
+function typeWriter() {
+  if (i < text.length) {
+    el.innerHTML += text.charAt(i);
+    i++;
+    setTimeout(typeWriter, 40); 
+  }
+}
+
+function activateBlackHoleMode() {
+  document.body.classList.add("blackhole-mode");
+
+  el.innerHTML = "";
+  i = 0;
+  typeWriter();
+}

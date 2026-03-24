@@ -607,9 +607,10 @@ body.progress-active .scroll-indicator {
 
 
 
-body.blackhole-mode {
+main.blackhole-mode {
   animation: warp-screen 2s ease forwards;
   overflow: hidden;
+  background: black;
 }
 
 /* background gets pulled inward */
@@ -655,19 +656,46 @@ body.blackhole-mode main {
   opacity: 0;
 }
 
-/* hidden message reveal */
 .blackhole-message {
   position: fixed;
   inset: 0;
   display: grid;
   place-items: center;
-  font-size: 2rem;
+  background: black;
+  color: white;
   opacity: 0;
   pointer-events: none;
+  z-index: 99999;
   transition: opacity 1s ease;
 }
 
 body.blackhole-mode .blackhole-message {
   opacity: 1;
+  pointer-events: auto;
+}
+
+.blackhole-message__content {
+  text-align: center;
+}
+
+.blackhole-message h2 {
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+
+.blackhole-message button {
+  cursor: url("../public/images/blackhole_32x32.png") 16 16, auto;
+  font-family: spacemono, Arial, Helvetica, sans-serif;
+  padding: 10px 20px;
+  font-size: 1rem;
+  background: white;
+  color: black;
+  border: none;
+  border-radius: 6px;
+}
+
+body.blackhole-mode .blackhole-message {
+  opacity: 1;
+  pointer-events: auto;
 }
 
