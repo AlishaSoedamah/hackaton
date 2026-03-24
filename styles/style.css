@@ -3,6 +3,12 @@
 	--black: rgb(0, 0, 0);
 	--nebula-accent: #eb5c35;
 	--nebula-bg: #181932;
+	--indicator-top: 12vh;
+	--indicator-height: 76vh;
+	--indicator-right: clamp(1rem, 2vw, 2rem);
+	--indicator-width: 72px;
+	--satellite-size: 56px;
+	--rail-width: 4px;
 }
 
 @font-face {
@@ -352,5 +358,105 @@ span {
 @media (min-width: 800px) {
 	.carousel {
 		width: 70vw;
+	}
+}
+
+
+/**********************/
+/* MARK: PROGRESS BAR */
+/**********************/
+
+/* Animate satellite to right position */
+.satellite-imgs-container {
+	transition:
+		transform 0.5s ease,
+		opacity 0.35s ease,
+		filter 0.35s ease;
+	transform-origin: top right;
+}
+
+/* As soon as progress mode is active */
+body.progress-active .heading .satellite-imgs-container {
+	transform: scale(0.35) translateX(35%);
+	opacity: 0;
+	pointer-events: none;
+}
+
+/* Fixed progress indicator right */
+.scroll-indicator {
+	position: fixed;
+	top: var(--indicator-top);
+	right: var(--indicator-right);
+	height: var(--indicator-height);
+	width: var(--indicator-width);
+	z-index: 50;
+	pointer-events: none;
+	opacity: 0;
+	transform: translateX(20px);
+	transition:
+		opacity 0.35s ease,
+		transform 0.35s ease;
+}
+
+body.progress-active .scroll-indicator {
+	opacity: 1;
+	transform: translateX(0);
+}
+
+.scroll-indicator__rail {
+	position: relative;
+	height: 100%;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+
+.scroll-indicator__rail::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	width: var(--rail-width);
+	border-radius: 999px;
+	background: rgb(255 255 255 / 0.2);
+}
+
+.scroll-indicator__fill {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	width: var(--rail-width);
+	height: 0;
+	border-radius: 999px;
+	background: linear-gradient(
+		to bottom,
+		var(--nebula-accent),
+		rgb(255 255 255 / 0.9)
+	);
+}
+
+.scroll-indicator__satellite {
+	position: absolute;
+	left: 50%;
+	top: 100%;
+	transform: translate(-50%, -50%);
+	width: var(--satellite-size);
+	height: auto;
+	filter: drop-shadow(0 8px 18px rgb(0 0 0 / 0.35));
+	transition: width 0.3s ease;
+}
+
+/* Smaller on mobile */
+@media (max-width: 800px) {
+	/* :root {
+		--indicator-width: 56px;
+		--satellite-size: 42px;
+		--indicator-height: 68vh;
+	} */
+	.scroll-indicator {
+		display: none;
 	}
 }
