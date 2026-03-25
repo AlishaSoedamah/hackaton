@@ -27,6 +27,7 @@ const body = document.body;
 const heading = document.querySelector('.heading');
 const carousel = document.querySelector('.carousel');
 const main = document.querySelector('main');
+const marquee = document.querySelector('.marquee');
 
 const indicator = document.querySelector('.scroll-indicator');
 const satellite = document.querySelector('.scroll-indicator__satellite');
@@ -45,7 +46,7 @@ function updateProgress() {
 	const start = carousel.offsetTop - viewportHeight * 0.7;
 
   // End: Bottom of all content
-	const end = main.offsetTop + main.offsetHeight - viewportHeight;
+  const end = marquee.offsetTop + marquee.offsetHeight - viewportHeight;
 
 	const rawProgress = (window.scrollY - start) / (end - start);
 	const progress = clamp(rawProgress, 0, 1);
@@ -76,7 +77,7 @@ const resizeObserver = new ResizeObserver(() => {
 resizeObserver.observe(main);
 resizeObserver.observe(carousel);
 resizeObserver.observe(heading);
-
+resizeObserver.observe(marquee);
 
 
 const konamiCode = [
