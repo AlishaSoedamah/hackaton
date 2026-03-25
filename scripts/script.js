@@ -146,7 +146,7 @@ function activateBlackHoleMode() {
 // TYPING FOR EASTER EGG
 const text = "-.-- --- ..- / .... .- ...- . / -... . . -. / .- -... ... --- .-. -... . -.. / .. -. - --- / - .... . / ...- --- .. -.. .-.-.- .-.-.- .-.-.-";
 const el = document.getElementById("typingText");
-const typingSound = new Audio('../audio/morsethevoid.mp3');
+const typingSound = new Audio('audio/morsethevoid.mp3');
 
 let i = 0;
 let typingActive = false;

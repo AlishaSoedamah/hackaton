@@ -1076,7 +1076,6 @@ body.progress-active .scroll-indicator {
 }
 
 /* EASTER EGG */
-
 body.blackhole-mode {
   margin: 0;
 }
@@ -1147,7 +1146,8 @@ body.blackhole-mode * {
 
 body.blackhole-mode .heading,
 body.blackhole-mode nav,
-body.blackhole-mode main {
+body.blackhole-mode main,
+body.blackhole-mode footer {
   transform:
     translate(-50vw, -50vh)
     scale(0.1)
@@ -1191,7 +1191,6 @@ body.blackhole-mode .blackhole-message {
   margin-bottom: 20px;
   font-size: 2rem;
   color: var(--white);
-
 }
 
 .blackhole-message button {
