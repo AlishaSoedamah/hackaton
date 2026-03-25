@@ -1168,6 +1168,8 @@ body.blackhole-mode .blackhole-message {
 .blackhole-message h2 {
   margin-bottom: 20px;
   font-size: 2rem;
+  color: var(--white);
+
 }
 
 .blackhole-message button {
