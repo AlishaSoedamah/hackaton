@@ -419,13 +419,13 @@ a {
 .background {
 	height: 100vh;
 	display: grid;
-	background: var(--black);
+	/* background: var(--black); */
 
 	position: fixed;
 	top: 0;
 	right: 0;
 	left: 0;
-  z-index: 999999;
+  z-index: 2;
 	overflow: hidden;
 	pointer-events: none;
 
@@ -459,6 +459,7 @@ a {
 .circle-wrapper {
 	display: grid;
 	place-items: center;
+  
 }
 
 .circle {
@@ -486,15 +487,16 @@ a {
 
 }
 
+
 .circle::before {
-    background-color: var(--nebula-bg);
+    background-color: var(--black);
     content: "";
     position: absolute;
     inset: 0;
     border: 10px solid #ff3000;
     border-radius: 50%;
     filter: blur(10px);
-    transform: skew(10deg, 10deg);
+    transform: skew(20deg, 10deg);
 }
 
 @keyframes animation-blackhole {
@@ -586,7 +588,7 @@ main > * {
 main::before {
   content: "";
   position: absolute;
-  z-index: 999999999;
+  z-index: 1;
   inset: 0;
   pointer-events: none;
 
