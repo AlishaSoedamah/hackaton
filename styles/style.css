@@ -902,13 +902,6 @@ span {
     font-size: 2.5em;
 }
 
-.stick {
-	top: 0;
-    position: sticky;
-    width: 300px;
-	align-self: self-start;
-}
-
 .special {
   display: none;
 }
@@ -921,15 +914,17 @@ span {
 	width: 100vw;
 	height: auto;
 	position: relative;
-  padding: 40px 25px;
+    padding: 40px 25px;
 }
 
 .carousel img {
-	position: sticky;
-	top: 25%;
-	animation-name: fadeScale;
+    width: 300px;
+    animation-name: fadeScale;
+}
+
+.scroll-anim-foto {
 	animation-timeline: view();
-	animation-range: entry 100svh cover 50%;
+	animation-range: exit -25% exit 100%;
 	animation-duration: auto;
 	animation-fill-mode: both;
 }
@@ -940,6 +935,7 @@ span {
 	}
 	to {
 		opacity: 0;
+        translate: 0 40vh;
 	}
 }
 
