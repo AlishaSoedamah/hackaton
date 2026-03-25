@@ -163,3 +163,24 @@ if (exitBtn) {
   });
 }
 
+
+/********************************/
+/* MARK: ANIMATION WHEN VISIBLE */
+/********************************/
+
+const observer = new IntersectionObserver((entries) => {
+	entries.forEach(entry => {
+		if (entry.isIntersecting) {
+			entry.target.classList.add("in-view");
+
+			// zorgt dat animatie maar 1x afspeelt
+			observer.unobserve(entry.target);
+		}
+	});
+}, {
+	threshold: 0.3
+});
+
+document.querySelectorAll(".heading").forEach(section => {
+	observer.observe(section);
+});
