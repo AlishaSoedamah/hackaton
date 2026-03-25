@@ -691,13 +691,12 @@ body.progress-active .scroll-indicator {
 }
 
 
-
+/* EASTER EGG */
 main.blackhole-mode {
   overflow: hidden;
   background: var(--black);
 }
 
-/* background gets pulled inward */
 body.blackhole-mode .background-head {
   transform: scale(2) translate(0, -10%);
   opacity: 1;
@@ -713,8 +712,6 @@ body.blackhole-mode .circle {
   filter: blur(50px) contrast(4);
 }
 
-
-/* everything gets pulled toward center */
 body.blackhole-mode * {
   transform-origin: center !important;
   transition: transform 2.5s cubic-bezier(.2,.8,.2,1), opacity 1.5s ease;
@@ -724,16 +721,14 @@ body.blackhole-mode .heading,
 body.blackhole-mode nav,
 body.blackhole-mode main {
   transform:
-    translate(-50vw, -50vh)  /* 👈 always go to center */
+    translate(-50vw, -50vh)
     scale(0.1)
     rotate(720deg);
-  opacity: 0;
+    opacity: 0;
 }
 
-/* add randomness feel */
 body.blackhole-mode nav {
   animation: vortex 2.5s ease forwards;
-
   transition-delay: 0.1s;
 }
 
@@ -742,7 +737,6 @@ body.blackhole-mode .heading {
   animation: vortex 2.5s ease forwards reverse;
 }
 
-/* MESSAGE (clean, not affected) */
 .blackhole-message {
   position: fixed;
   inset: 0;
@@ -761,7 +755,7 @@ body.blackhole-mode .blackhole-message {
   pointer-events: auto;
 }
 
-.blackhole-message__content {
+.blackhole-message-content {
   text-align: center;
 }
 
@@ -805,13 +799,13 @@ body.blackhole-mode main {
   70% {
     transform: scale(0.1) rotate(360deg);
     filter: blur(50px);
-    opacity: .5; /* 👈 STILL visible */
+    opacity: .5; 
   }
 
   90% {
     transform: scale(0.005) rotate(720deg);
     filter: blur(80px);
-    opacity: .2; /* 👈 stays visible almost fully */
+    opacity: .2;
   }
 
   100% {
