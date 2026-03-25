@@ -448,7 +448,6 @@ main {
 
 }
 
-
 .circle-wrapper-head {
 	display: grid;
 	place-items: center;
@@ -549,7 +548,7 @@ span {
 	grid-template-columns: 130px auto 450px;
 	gap: 75px;
 	width: 100vw;
-	height: 130vh;
+	height: auto;
 	position: relative;
 
 }
