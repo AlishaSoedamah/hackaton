@@ -978,14 +978,12 @@ span {
 	transform-origin: top right;
 }
 
-/* As soon as progress mode is active */
 body.progress-active .heading .satellite-imgs-container {
 	transform: scale(0.35) translateX(35%);
 	opacity: 0;
 	pointer-events: none;
 }
 
-/* Fixed progress indicator right */
 .scroll-indicator {
 	position: fixed;
 	top: var(--indicator-top);
@@ -1052,7 +1050,6 @@ body.progress-active .scroll-indicator {
 	transition: width 0.3s ease;
 }
 
-/* Smaller on mobile */
 @media (max-width: 800px) {
 	.scroll-indicator {
 		display: none;
@@ -1126,7 +1123,6 @@ body.blackhole-mode .circle {
 }
 
 body.blackhole-mode * {
-  /* transform-origin: center !important; */
   transition: transform 2.5s cubic-bezier(.2,.8,.2,1), opacity 1.5s ease;
 }
 
@@ -1262,8 +1258,8 @@ body.blackhole-mode main {
 }
 
 .pic {
-  flex: 0 0 220px; /* vaste breedte per item */
-  height: 140px;   /* vaste hoogte van de box */
+  flex: 0 0 220px; 
+  height: 140px;   
   display: flex;
   align-items: center;
   justify-content: center;
