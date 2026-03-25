@@ -19,6 +19,7 @@
 * {
   box-sizing: border-box;
   margin: 0;
+  padding: 0;
 }
 
 body {
@@ -448,7 +449,7 @@ main {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    background: linear-gradient(180deg,rgba(0, 0, 0, 1) 0%, rgba(24, 25, 50, 1) 70%, rgba(10, 61, 120, 1) 80%, rgba(0, 101, 156, 1) 90%, rgba(33, 159, 184, 1) 100%);
+    background: linear-gradient(180deg,rgba(0, 0, 0, 1) 0%, rgba(24, 25, 50, 1) 70%, rgba(10, 61, 120, 1) 80%, rgba(0, 101, 156, 1) 90%, rgb(255, 255, 255) 100%);
 }
 
 .heading {
@@ -877,5 +878,77 @@ body.blackhole-mode main {
     transform: scale(0);
     filter: blur(100px);
     opacity: 0; 
+  }
+}
+
+/*******************************/
+/* MARK: MARQUEE VOOR PARTNERS */
+/*******************************/
+
+.marquee {
+  width: 100%;
+  overflow: hidden;
+  padding: 1rem 0;
+}
+
+.container {
+  width: 100%;
+  overflow: hidden;
+}
+
+.pic-container {
+  display: flex;
+  width: max-content;
+  animation: marquee 25s linear infinite;
+  will-change: transform;
+}
+
+.marquee-group {
+  display: flex;
+  flex-shrink: 0;
+}
+
+.pic {
+  flex: 0 0 220px; /* vaste breedte per item */
+  height: 140px;   /* vaste hoogte van de box */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.pic img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+@keyframes marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee,
+  .container {
+    overflow-x: auto;
+  }
+
+  .pic-container {
+    animation: none;
+    transform: none;
+    width: max-content;
+  }
+
+  .marquee-group[aria-hidden="true"] {
+    display: none;
   }
 }
