@@ -50,6 +50,10 @@ h1 {
   }
 }
 
+h2 {
+  color: var(--nebula-accent);
+}
+
 nav ul {
   padding-inline: 0;
   width: 100%;
@@ -84,12 +88,6 @@ nav ul {
         background: url(../public/images/arrow.png);
         background-repeat: no-repeat;
       }
-
-      &:hover { 
-        span {
-          animation: linear rotate 3s infinite;
-        }
-      }
     }
   }
 }
@@ -105,12 +103,107 @@ nav ul {
   }
 }
 
-button:hover, a:hover {
+button:hover, a:hover, label:hover {
   cursor: url("../public/images/blackhole_32x32.png") 16 16, auto;
     font-family: spacemono, Arial, Helvetica, sans-serif;
 
     color: var(--white);
     background-color: var(--nebula-bg);
+
+    span {
+      animation: linear rotate 3s infinite;
+    }
+}
+
+a {
+  color: var(--nebula-accent);
+}
+
+.details {
+  border-radius: 2rem;
+  margin: 5dvh 10dvw;
+  padding: 2rem;
+  background-color: var(--nebula-bg);
+
+  min-height: max-content;
+  width: 90dvw;
+
+  .button-list {
+    border: none;
+    border-bottom: 2px solid var(--black);
+    display: flex;
+    justify-content: space-evenly;
+    gap: 2rem;
+
+    label {
+      font-size: clamp(1em, 4vw ,1.2em);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: .5rem;
+
+      color: var(--white);
+
+      input[type="radio"] {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+
+        &:checked ~ span {
+          transform: rotateZ(0deg);
+        }
+      }
+
+      span {
+        display: inline-block;
+        height: 24px;
+        width: 24px;
+        
+        animation-duration: 2s;
+        transition: .5s ease;
+        transform: rotateZ(-90deg);
+        color: inherit;
+
+        svg {
+          position: absolute;
+        }
+      }
+
+      &:has(:checked) {
+        color: var(--nebula-accent);
+      }
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.detail-elements {
+  display: grid;
+}
+
+.detail-element {
+  grid-column: 1;
+  grid-row: 1;
+
+  padding: 4dvh 2.5dvw;
+
+  opacity: 0;
+  display: grid;
+  flex-direction: column;
+  gap: 2rem;
+
+  img {
+    grid-column: 2;
+  }
+
+  &.active {
+    opacity: 1;
+  }
 }
 
 .heading {

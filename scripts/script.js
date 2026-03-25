@@ -121,7 +121,7 @@ let typingActive = false;
 
 
 function typeWriter() {
-  if (!typingActive) return; 
+  if (!typingActive) return;
 
   if (i < text.length) {
     el.innerHTML += text.charAt(i);
@@ -184,3 +184,28 @@ const observer = new IntersectionObserver((entries) => {
 document.querySelectorAll(".heading").forEach(section => {
 	observer.observe(section);
 });
+
+/**********************/
+/* MARK: DETAILS INFO */
+/**********************/
+
+const detailInfoRadio = document.querySelector('.button-list');
+
+detailInfoRadio.addEventListener('change', showDetailInfo);
+
+const initialRadio = document.getElementById('science');
+initialRadio.setAttribute('checked', true);
+initialRadio.dispatchEvent(new Event('change', {bubbles: true}));
+
+function showDetailInfo(event) {
+  const inputId = event.target.getAttribute('id');
+
+  const details = document.querySelectorAll('.detail-element');
+  details.forEach((detail) => {
+    if (detail.getAttribute('data-for') === inputId) {
+      detail.classList.add('active');
+    } else if (detail.classList.contains('active')) {
+      detail.classList.remove('active');
+    }
+  });
+}
