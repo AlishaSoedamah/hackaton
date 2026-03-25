@@ -1097,8 +1097,8 @@ body.blackhole-mode .stars {
   background-repeat: repeat;
   background-size: 800px 600px;
 
-  animation: stars-twinkle 1s ease-in-out infinite,
-  stars-drift 5s ease-in-out infinite;
+  animation: stars-twinkle 4s ease-in-out infinite,
+  stars-drift 20s ease-in-out infinite;
 }
 
 main.blackhole-mode {
@@ -1126,6 +1126,7 @@ body.blackhole-mode .circle {
 }
 
 body.blackhole-mode * {
+  /* transform-origin: center !important; */
   transition: transform 2.5s cubic-bezier(.2,.8,.2,1), opacity 1.5s ease;
 }
 
