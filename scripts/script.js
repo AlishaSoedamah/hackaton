@@ -225,9 +225,12 @@ const detailInfoRadio = document.querySelector('.button-list');
 
 detailInfoRadio.addEventListener('change', showDetailInfo);
 
-const initialRadio = document.getElementById('science');
-initialRadio.setAttribute('checked', true);
-initialRadio.dispatchEvent(new Event('change', {bubbles: true}));
+const scienceRadio = document.getElementById('science');
+const instrumentationRadio = document.getElementById('instrumentation');
+const assignmentsRadio = document.getElementById('assignments');
+
+scienceRadio.setAttribute('checked', true);
+scienceRadio.dispatchEvent(new Event('change', {bubbles: true}));
 
 function showDetailInfo(event) {
   const inputId = event.target.getAttribute('id');
@@ -242,6 +245,33 @@ function showDetailInfo(event) {
   });
 }
 
+const navLinks = document.querySelectorAll('[href="#extra-info"]');
+
+navLinks.forEach(link => {
+  link.addEventListener('click', showRightInfo);
+});
+
+function showRightInfo(event) {
+  const infoTitle = event.target.textContent.toLowerCase();
+  switch (infoTitle) {
+    case 'science':
+      scienceRadio.checked = true;
+      scienceRadio.dispatchEvent(new Event('change', {bubbles: true}));
+      break;
+    case 'assignments':
+      assignmentsRadio.checked = true;
+      assignmentsRadio.dispatchEvent(new Event('change', {bubbles: true}));
+      break;
+    case 'instrumentation':
+      instrumentationRadio.checked = true;
+      instrumentationRadio.dispatchEvent(new Event('change', {bubbles: true}));
+      break;
+  }
+}
+
+/**********************/
+/* MARK: PRELOADER */
+/**********************/
 
 window.addEventListener("load", () => {
   setTimeout(() => {
@@ -253,4 +283,3 @@ window.addEventListener("load", () => {
     }, 800);
   }, 5000);
 });
-

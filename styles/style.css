@@ -13,6 +13,8 @@
 	--indicator-width: 72px;
 	--satellite-size: 56px;
 	--rail-width: 4px;
+
+  scroll-behavior: smooth;
 }
 
 @font-face {
@@ -144,7 +146,12 @@ a {
   padding: 2.5dvw;
 
   h3 {
-    align-self: flex-start;
+    width: 80%;
+    align-self: center;
+
+    @media (max-width: 820px) {
+      text-align: center;
+    }
   }
 
   .button-list {
@@ -1253,8 +1260,9 @@ body.blackhole-mode main {
   background: var(--white);
 
   h3 {
-    padding-inline: 3rem;
-    margin: 0;
+    width: 80%;
+    margin: auto;
+    padding-inline: 2.5vw;
   }
 }
 
