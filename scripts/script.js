@@ -79,7 +79,11 @@ resizeObserver.observe(carousel);
 resizeObserver.observe(heading);
 resizeObserver.observe(marquee);
 
-// EATSTER EGG
+
+/*********************/
+/* MARK: EATSTER EGG */
+/*********************/
+
 const konamiCode = [
   "ArrowUp","ArrowUp",
   "ArrowDown","ArrowDown",
@@ -146,7 +150,7 @@ function activateBlackHoleMode() {
   typeWriter();
 }
 
-
+// EXIT BUTTON
 const exitBtn = document.getElementById("exitBlackhole");
 
 if (exitBtn) {
