@@ -78,7 +78,7 @@ resizeObserver.observe(carousel);
 resizeObserver.observe(heading);
 
 
-
+// EATSTER EGG
 const konamiCode = [
   "ArrowUp","ArrowUp",
   "ArrowDown","ArrowDown",
@@ -106,25 +106,29 @@ function activateBlackHoleMode() {
   document.body.classList.add("blackhole-mode");
 }
 
-document.getElementById("exitBlackhole").addEventListener("click", () => {
-  document.body.classList.remove("blackhole-mode");
-});
-
-
+// TYPING FOR EASTER EGG
 const text = "-.-- --- ..- / .... .- ...- . / -... . . -. / .- -... ... --- .-. -... . -.. / .. -. - --- / - .... . / ...- --- .. -.. .-.-.- .-.-.- .-.-.-";
 const el = document.getElementById("typingText");
-const typingSound = new Audio('../audio/morsethevoid.mp3')
-
+const typingSound = new Audio('../audio/morsethevoid.mp3');
 
 let i = 0;
+let typingActive = false;
+
 
 function typeWriter() {
+  if (!typingActive) return; 
+
   if (i < text.length) {
     el.innerHTML += text.charAt(i);
     i++;
-    setTimeout(typeWriter, 100); 
-    typingSound.loop = false;
-typingSound.play();
+
+
+    if (typingSound.paused) {
+      typingSound.currentTime = 0;
+      typingSound.play();
+    }
+
+    setTimeout(typeWriter, 100);
   }
 }
 
@@ -133,5 +137,23 @@ function activateBlackHoleMode() {
 
   el.innerHTML = "";
   i = 0;
+  typingActive = true;
+
+  typingSound.currentTime = 0;
+  typingSound.play();
+
   typeWriter();
+}
+
+
+const exitBtn = document.getElementById("exitBlackhole");
+
+if (exitBtn) {
+  exitBtn.addEventListener("click", () => {
+    document.body.classList.remove("blackhole-mode");
+
+    typingActive = false;
+    typingSound.pause();
+    typingSound.currentTime = 0;
+  });
 }
