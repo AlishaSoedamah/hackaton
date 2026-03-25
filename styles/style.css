@@ -152,6 +152,7 @@ a {
     display: flex;
     justify-content: space-evenly;
     gap: 2rem;
+    padding-top: 1em;
     padding-bottom: 2em;
 
     label {
@@ -1351,7 +1352,6 @@ body::-webkit-scrollbar {
 /****************/
 
     footer {
-      margin-top: 2rem;
       position: relative;
       overflow: visible;
       background: var(--nebula-bg);
