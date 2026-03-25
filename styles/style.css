@@ -409,18 +409,6 @@ a {
   }
 }
 
-@keyframes float {
-  0% {
-    transform: translateY(-4%) translateX(-2%);
-  }
-  50% {
-    transform: translateY(-1%) translateX(1%);
-  }
-  100% {
-    transform: translateY(5%) translateX(3%);
-  }
-}
-
 @keyframes rotate {
   33% {
     transform: rotateZ(-5deg);
@@ -1252,6 +1240,11 @@ body.blackhole-mode main {
   width: 100%;
   overflow: hidden;
   padding: 1rem 0;
+  background: linear-gradient(
+    transparent 33%,
+    var(--white) 66%,
+    transparent
+  )
 }
 
 .container {
@@ -1262,7 +1255,7 @@ body.blackhole-mode main {
 .pic-container {
   display: flex;
   width: max-content;
-  animation: marquee 25s linear infinite;
+  animation: marquee 90s linear infinite;
   will-change: transform;
 }
 
@@ -1279,6 +1272,8 @@ body.blackhole-mode main {
   justify-content: center;
   padding: 1rem;
   box-sizing: border-box;
+  animation: float 5s infinite alternate;
+  animation-delay: calc(1s * sibling-index());
 }
 
 .pic img {
@@ -1296,6 +1291,18 @@ body.blackhole-mode main {
   }
   to {
     transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(-4%) translateX(-2%);
+  }
+  50% {
+    transform: translateY(-1%) translateX(1%);
+  }
+  100% {
+    transform: translateY(5%) translateX(3%);
   }
 }
 
