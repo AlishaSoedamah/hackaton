@@ -806,22 +806,18 @@ span {
 }
 
 .special {
-	border-bottom: 1px solid var(--white);
-	padding: 20px 0;
-	margin: 20px 0;
-	top: 0;
+  display: none;
 }
 
 .carousel {
 	display: grid;
 	justify-items: center;
 	justify-content: center;
-	grid-template-columns: 130px auto 450px;
 	gap: 75px;
 	width: 100vw;
 	height: auto;
 	position: relative;
-  padding: 0 25px;
+  padding: 40px 25px;
 }
 
 .carousel img {
@@ -843,12 +839,29 @@ span {
 	}
 }
 
-@media (max-width: 500px) {
+@media (min-width: 550px) {
+  .special {
+    border-bottom: 1px solid var(--white);
+    padding: 20px 0;
+    margin: 20px 0;
+    top: 0;
+  }
+
 	.carousel {
-		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr) );
+		grid-template-columns: repeat(auto-fit, minmax(auto-fit, 1fr) );
 	}
+
+  .carousel div {
+    width: 500px;
+  }
 }
 
+@media (min-width: 1060px) {
+	.carousel {
+		grid-template-columns: 130px auto 450px;
+
+	}
+}
 
 /**********************/
 /* MARK: PROGRESS BAR */
