@@ -1204,6 +1204,13 @@ body.blackhole-mode .blackhole-message {
   border-radius: 6px;
 }
 
+model-viewer {
+    position: absolute;
+    z-index: -1;
+		height: 60vh;
+		width: 100%;
+}
+
 body.blackhole-mode .scroll-hint {
   opacity: 0;
   visibility: hidden;

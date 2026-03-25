@@ -318,15 +318,22 @@
 			class="footer-bottom-image"
 		/>
   	</footer>
-
-	<div class="blackhole-message">
-		<div class="blackhole-message-content">
-		  	<h2 id="typingText"></h2>
+	  <div class="blackhole-message">
+		  <div class="blackhole-message-content">
+			  <h2 id="typingText"></h2>
 		  	<button id="exitBlackhole">Return</button>
 		</div>
+		<!-- 3D MODEL van: https://sketchfab.com/3d-models/blackhole-speareffect-d3f30a49fad7446f90b8f07fb9dde284 -->
+		<model-viewer alt="3d model" src="model/speareffect.glb" 
+		
+			camera-controls
+			touch-action="pan-y"
+		>
+		</model-viewer>
 	</div>
 	<div class="stars"></div>
-
+	<!-- display 3D model on HTML page -->
+	<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.2.0/model-viewer.min.js"></script>
 	<script src="scripts/script.js"></script>
 </body>
 </html>
