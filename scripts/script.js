@@ -28,57 +28,84 @@ const heading = document.querySelector('.heading');
 const carousel = document.querySelector('.carousel');
 const main = document.querySelector('main');
 const marquee = document.querySelector('.marquee');
+const details = document.querySelector('.details-section');
+const footer = document.querySelector('.site-footer');
 
 const indicator = document.querySelector('.scroll-indicator');
 const satellite = document.querySelector('.scroll-indicator__satellite');
 const fill = document.querySelector('.scroll-indicator__fill');
 const rail = document.querySelector('.scroll-indicator__rail');
 
-
 function clamp(value, min, max) {
 	return Math.min(Math.max(value, min), max);
 }
 
 function updateProgress() {
-	const viewportHeight = window.innerHeight;
+	if (!carousel || !footer || !indicator || !satellite || !fill || !rail) {
+		return;
+	}
 
-  // Start: When the satellite is nearly out of view
+	const viewportHeight = window.innerHeight;
+	const scrollY = window.scrollY;
+
+	// Progress start
 	const start = carousel.offsetTop - viewportHeight * 0.7;
 
-  // End: Bottom of all content
-  const end = marquee.offsetTop + marquee.offsetHeight - viewportHeight;
+	// Progress end: vlak voor de footer
+	const endOffset = 40;
+	const end = footer.offsetTop - viewportHeight - endOffset;
 
-	const rawProgress = (window.scrollY - start) / (end - start);
+	const rawProgress = (scrollY - start) / (end - start);
 	const progress = clamp(rawProgress, 0, 1);
 
-  // Activate progress mode
 	body.classList.toggle('progress-active', progress > 0);
 
-  // Height of the rail that the satellite moves over
+	// Fill + satellite
 	const railHeight = rail.offsetHeight;
 	const satelliteHeight = satellite.offsetHeight;
 	const travelDistance = railHeight - satelliteHeight;
-  const indicatorPosition = progress * railHeight;
 
-	const y = travelDistance * progress;
+	const y = progress * travelDistance;
+	const fillHeight = y + satelliteHeight / 4;
 
-  fill.style.height = `${indicatorPosition}px`;
-  satellite.style.top = `${indicatorPosition}px`;
+	fill.style.height = `${fillHeight}px`;
+	satellite.style.top = `${y}px`;
+
+	// Indicator position: fixed totdat footer bereikt is,
+	// daarna "plakt" hij net boven de footer.
+	const indicatorTopInViewport = 40; // zelfde als je CSS top
+	const indicatorHeight = indicator.offsetHeight;
+
+	const maxDocumentTop =
+		footer.offsetTop - indicatorHeight - endOffset;
+
+	const fixedDocumentTop = scrollY + indicatorTopInViewport;
+
+	if (fixedDocumentTop >= maxDocumentTop) {
+		indicator.classList.add('is-stuck');
+		indicator.style.top = `${maxDocumentTop}px`;
+	} else {
+		indicator.classList.remove('is-stuck');
+		indicator.style.top = `${indicatorTopInViewport}px`;
+	}
 }
 
 updateProgress();
-window.addEventListener('scroll', updateProgress);
+
+window.addEventListener('scroll', updateProgress, { passive: true });
 window.addEventListener('resize', updateProgress);
 
 const resizeObserver = new ResizeObserver(() => {
 	updateProgress();
 });
 
-resizeObserver.observe(main);
-resizeObserver.observe(carousel);
-resizeObserver.observe(heading);
-resizeObserver.observe(marquee);
-
+if (main) resizeObserver.observe(main);
+if (carousel) resizeObserver.observe(carousel);
+if (heading) resizeObserver.observe(heading);
+if (marquee) resizeObserver.observe(marquee);
+if (details) resizeObserver.observe(details);
+if (footer) resizeObserver.observe(footer);
+if (indicator) resizeObserver.observe(indicator);
 
 /*********************/
 /* MARK: EATSTER EGG */

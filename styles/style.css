@@ -992,7 +992,7 @@ body.progress-active .heading .satellite-imgs-container {
 	right: var(--indicator-right);
 	height: var(--indicator-height);
 	width: var(--indicator-width);
-	z-index: 50;
+	z-index: 10;
 	pointer-events: none;
 	opacity: 0;
 	transform: translateX(20px);
@@ -1000,6 +1000,11 @@ body.progress-active .heading .satellite-imgs-container {
 		opacity 0.35s ease,
 		transform 0.35s ease;
 }
+
+.scroll-indicator.is-stuck {
+	position: absolute;
+}
+
 
 body.progress-active .scroll-indicator {
 	opacity: 1;
@@ -1459,8 +1464,8 @@ body::-webkit-scrollbar {
       font-size: 1rem;
       line-height: 1.4;
       opacity: 0.95;
-      max-width: 4rem;
-      gap: 1rem;
+      
+      gap: .5rem;
     }
 
     .partner-logo img {
