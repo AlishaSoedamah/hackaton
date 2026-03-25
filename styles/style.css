@@ -19,6 +19,7 @@
 * {
   box-sizing: border-box;
   margin: 0;
+  padding: 0;
 }
 
 body {
@@ -783,3 +784,68 @@ body.blackhole-mode .blackhole-message {
   pointer-events: auto;
 }
 
+
+/*******************************/
+/* MARK: MARQUEE VOOR PARTNERS */
+/*******************************/
+
+.marquee {
+  width: 100%;
+  overflow: hidden;
+  padding: 1rem 0;
+}
+
+.container {
+  width: 100%;
+  overflow: hidden;
+}
+
+.pic-container {
+  display: flex;
+  width: max-content;
+  animation: marquee 25s linear infinite;
+  will-change: transform;
+}
+
+.marquee-group {
+  display: flex;
+  flex-shrink: 0;
+}
+
+.pic {
+  flex: 0 0 auto;
+  padding: 2rem 2rem;
+}
+
+.pic img {
+  height: 100px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee,
+  .container {
+    overflow-x: auto;
+  }
+
+  .pic-container {
+    animation: none;
+    transform: none;
+    width: max-content;
+  }
+
+  .marquee-group[aria-hidden="true"] {
+    display: none;
+  }
+}

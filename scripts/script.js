@@ -135,3 +135,6 @@ function activateBlackHoleMode() {
   i = 0;
   typeWriter();
 }
+
+
+
