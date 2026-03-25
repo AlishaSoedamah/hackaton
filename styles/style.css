@@ -13,6 +13,8 @@
 	--indicator-width: 72px;
 	--satellite-size: 56px;
 	--rail-width: 4px;
+
+  scroll-behavior: smooth;
 }
 
 @font-face {
