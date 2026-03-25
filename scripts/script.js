@@ -53,7 +53,7 @@ function updateProgress() {
 
 	// Progress end: vlak voor de footer
 	const endOffset = 40;
-	const end = footer.offsetTop - viewportHeight - endOffset;
+	const end = marquee.offsetTop - viewportHeight - endOffset;
 
 	const rawProgress = (scrollY - start) / (end - start);
 	const progress = clamp(rawProgress, 0, 1);
@@ -82,7 +82,7 @@ satellite.style.top = `${satelliteTop}px`;
 	const indicatorHeight = indicator.offsetHeight;
 
 	const maxDocumentTop =
-		footer.offsetTop - indicatorHeight - endOffset;
+		marquee.offsetTop - indicatorHeight - endOffset;
 
 	const fixedDocumentTop = scrollY + indicatorTopInViewport;
 
