@@ -810,7 +810,6 @@ span {
 	padding: 20px 0;
 	margin: 20px 0;
 	top: 0;
-    position: sticky;
 }
 
 .carousel {
@@ -822,17 +821,7 @@ span {
 	width: 100vw;
 	height: auto;
 	position: relative;
-
-}
-
-.carousel div {
-	position: sticky;
-	top: 0;
-	animation-name: fadeScale;
-	animation-timeline: view();
-	animation-range: entry 100svh cover 50%;
-	animation-duration: auto;
-	animation-fill-mode: both;
+  padding: 0 25px;
 }
 
 .carousel img {
