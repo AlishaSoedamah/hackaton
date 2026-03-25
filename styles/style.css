@@ -1126,7 +1126,6 @@ body.blackhole-mode .circle {
 }
 
 body.blackhole-mode * {
-  /* transform-origin: center !important; */
   transition: transform 2.5s cubic-bezier(.2,.8,.2,1), opacity 1.5s ease;
 }
 
