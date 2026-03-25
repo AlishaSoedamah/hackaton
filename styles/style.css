@@ -119,9 +119,15 @@ a {
   color: var(--nebula-accent);
 }
 
+.details-section {
+  width: 100dvw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .details {
   border-radius: 2rem;
-  margin: 5dvh 10dvw;
   padding: 2rem;
   background-color: var(--nebula-bg);
 
