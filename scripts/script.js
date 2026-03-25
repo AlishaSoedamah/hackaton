@@ -209,3 +209,5 @@ function showDetailInfo(event) {
     }
   });
 }
+
+
