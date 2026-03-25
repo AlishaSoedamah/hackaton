@@ -66,10 +66,15 @@ function updateProgress() {
 	const travelDistance = railHeight - satelliteHeight;
 
 	const y = progress * travelDistance;
-	const fillHeight = y + satelliteHeight / 4;
 
-	fill.style.height = `${fillHeight}px`;
-	satellite.style.top = `${y}px`;
+  // visuele correctie omdat de PNG niet exact op de onderrand "ankert"
+  const satelliteVisualOffset = 70;
+
+  const satelliteTop = y + satelliteVisualOffset;
+  const fillHeight = satelliteTop + satelliteHeight - satelliteVisualOffset;
+
+fill.style.height = `${fillHeight}px`;
+satellite.style.top = `${satelliteTop}px`;
 
 	// Indicator position: fixed totdat footer bereikt is,
 	// daarna "plakt" hij net boven de footer.
