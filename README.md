@@ -2,4 +2,4 @@
 
 ## Easter egg
 
-up down up down left right left right b a
+up up down down left right left right b a
