@@ -1148,7 +1148,8 @@ body.blackhole-mode * {
 body.blackhole-mode .heading,
 body.blackhole-mode nav,
 body.blackhole-mode main,
-body.blackhole-mode footer {
+body.blackhole-mode footer,
+body.blackhole-mode .marquee {
   transform:
     translate(-50vw, -50vh)
     scale(0.1)
