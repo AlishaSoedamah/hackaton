@@ -14,6 +14,7 @@
 	--satellite-size: 56px;
 	--rail-width: 4px;
 
+  color-scheme: dark;
   scroll-behavior: smooth;
 }
 
