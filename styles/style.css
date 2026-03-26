@@ -1650,3 +1650,54 @@ body::-webkit-scrollbar {
         height: 15rem;
       }
     }
+
+/****************************/
+/* MARK: FLOATING ASTRONAUT */
+/****************************/
+
+.floating-astronaut {
+  color: #62d8e6;
+  color: var(--nebula-accent);
+  position: absolute;
+  top: 0;
+  z-index: 9;
+  height: 100dvh;
+  width: 100dvw;
+  pointer-events: none;
+
+  svg {
+    height: fit-content;
+    width: 2.5vw;
+    animation: infinite float-around 60s ease-out;
+  }
+}
+
+@keyframes float-around {
+  0% {
+    transform: translate3d(-10dvw, -10dvh, 0) rotateZ(0);
+  }
+  12.5% {
+    transform: translate3d(20dvw, 35dvh, 0) rotateZ(.5turn);
+  }
+  25% {
+    transform: translate3d(30dvw, 40dvh, 0) rotateZ(3turn);
+  }
+  37.5% {
+    transform: translate3d(15dvw, 45dvh, 0) rotateZ(0turn);
+  }
+  50% {
+    transform: translate3d(55dvw, 55dvh, 0) rotateZ(2turn);
+  }
+  62.5% {
+    transform: translate3d(80dvw, 40dvh, 0) rotateZ(4turn);
+  }
+  75% {
+    transform: translate3d(60dvw, 80dvh, 0) rotateZ(2.7turn);
+  } 
+  87.5% {
+    transform: translate3d(80dvw, 50dvh, 0) rotateZ(3.4turn);
+  }
+  100% {
+    transform: translate3d(110dvw, 15dvh, 0) rotateZ(4turn);
+  }
+}
