@@ -283,3 +283,12 @@ window.addEventListener("load", () => {
     }, 800);
   }, 5000);
 });
+
+
+/********************************/
+/* MARK: RESET TO TOP ON RELOAD */
+/********************************/
+
+if ('scrollRestoration' in history) {
+  history.scrollRestoration = 'manual';
+}
